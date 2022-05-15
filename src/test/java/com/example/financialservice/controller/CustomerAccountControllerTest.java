@@ -71,14 +71,14 @@ class CustomerAccountControllerTest {
 
         AccountDto accountDto = new AccountDto();
         accountDto.setAccountId(100L);
-        accountDto.setTransactionAmounts(List.of(1,2,3,4,5));
+        accountDto.setTransactionAmounts(List.of(1, 2, 3, 4, 5));
 
         Mockito.when(customerAccountService.createNewAccount(ArgumentMatchers.any(), eq(100))).thenReturn(accountDto);
 
         mockMvc.perform(post("/customer/account")
-                                .contentType(MediaType.APPLICATION_JSON)
-                                .param("customerId", String.valueOf(1))
-                                .param("initialCredit", String.valueOf(100))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .param("customerId", String.valueOf(1))
+                        .param("initialCredit", String.valueOf(100))
                 )
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.accountId").value(100))
@@ -96,5 +96,18 @@ class CustomerAccountControllerTest {
                         .param("initialCredit", String.valueOf(100))
                 )
                 .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void createNewAccountWithInvalidInitialCreditAmount() throws Exception {
+
+        Mockito.when(customerAccountService.createNewAccount(ArgumentMatchers.any(), ArgumentMatchers.any())).thenThrow(IllegalArgumentException.class);
+
+        mockMvc.perform(post("/customer/account")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .param("customerId", String.valueOf(1))
+                        .param("initialCredit", String.valueOf(1000000000))
+                )
+                .andExpect(status().isBadRequest());
     }
 }

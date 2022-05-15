@@ -12,4 +12,8 @@ public class GlobalControllerExceptionHandler {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(EntityNotFoundException.class)
     public void handleEntityException() {}
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(IllegalArgumentException.class)
+    public void handleBadRequest() {}
 }
