@@ -4,8 +4,7 @@ create table customer (
     id bigint not null primary key,
     name varchar(128),
     surname varchar(128),
-    balance bigint,
-    initial_credit bigint
+    balance bigint
 );
 
 create table account (

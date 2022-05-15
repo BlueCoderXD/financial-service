@@ -16,5 +16,4 @@ public class Customer {
     private String name;
     private String surname;
     private Integer balance;
-    private Integer initialCredit;
 }
