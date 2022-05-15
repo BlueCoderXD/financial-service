@@ -1,12 +1,11 @@
-# Financial Service
+# Financial Service REST API
 Financial service is a web application using REST API architecture which allows an existing user to create a  new account.
 
-The user is assumed to be already existing and only account creation functionality is implemented. 
+## Some technical decisions made
 
-## Technologies used in this project
-- SpringBoot
-- Java 17
-- Gradle
+- The user is assumed to be already existing and only account creation functionality is implemented.
+- An in-memory database is used for easier testing
+- A couple of users and accounts are created via schema for easier testing
 
 ## Prerequisites
 - Download and install gradle
