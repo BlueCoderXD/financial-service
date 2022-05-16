@@ -92,11 +92,9 @@ public class CustomerAccountServiceImpl implements CustomerAccountService {
         List<Integer> transactionsForSameAccountResultList = new ArrayList<>();
         List<Transactions> transactionsForSameAccountFromDB = transactionsRepository.findByAccountId(accountId);
 
-        if (!transactionsForSameAccountFromDB.isEmpty()) {
             for (Transactions transaction : transactionsForSameAccountFromDB) {
                 transactionsForSameAccountResultList.add(transaction.getTransactions());
             }
-        }
         return transactionsForSameAccountResultList;
     }
 

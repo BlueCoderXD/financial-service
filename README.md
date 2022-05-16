@@ -15,7 +15,11 @@ no conflict when a new id is generated when a new account is created through the
 
 ## How to build and run project
 
-If you are on Window, run the command:
+If you are on Window, first run the command:
+
+`./gradlew clean build`
+
+Then to run the project, either run the command
 
 `./gradlew bootRun`
 
@@ -23,7 +27,7 @@ To run all unit tests in the project, use the command:
 
 `./gradlew test`
 
-If gradle command is not working, you can also run the project by starting the application via the main method in the class 
+You can also run the project by starting the application via the main method in the class 
 FinancialServiceApplication or run this command under the root folder:
 
 `java -jar ./build/libs/financial-service-0.0.1-SNAPSHOT.jar`
@@ -35,3 +39,5 @@ http://localhost:8080/swagger-ui/index.html
 ## The available endpoints for this project are:
 * Add a new account for an already existing user
 * View the user information including existing and newly created accounts with transactions
+
+Users with id 1,2 and 3 can be used for testing purposes. 
