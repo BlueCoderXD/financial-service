@@ -153,7 +153,7 @@ class CustomerAccountServiceImplTest {
     }
 
     @Test
-    void getAccountInfoWithInvalidId() {
+    void getCustomerInfoWithInvalidId() {
         assertThrows(EntityNotFoundException.class, () -> customerAccountServiceImpl.getCustomerInfo(1000L));
     }
 }

@@ -36,7 +36,6 @@ public class CustomerAccountController {
             @RequestParam(value = "initialCredit") Integer initialCredit) {
 
         AccountDto newAccountResponse = customerAccountService.createNewAccount(customerId, initialCredit);
-
         return new ResponseEntity<>(newAccountResponse, HttpStatus.CREATED);
     }
 }
